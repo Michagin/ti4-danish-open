@@ -1,0 +1,212 @@
+@font-face {
+  font-family: 'handel_gothic_dbold';
+  src:
+    url('fonts/handel_gothic_d_bold-webfont.woff2') format('woff2'),
+    url('fonts/handel_gothic_d_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #4ade80;
+  --primary-alt: #22c55e;
+  --grey: #64748b;
+  --dark: #1e293b;
+  --dark-alt: #334155;
+  --light: #f1f5f9;
+  --sidebar-width: 300px;
+
+  overflow-y: scroll;
+}
+
+.debug {
+  border: 2px solid red;
+}
+
+html,
+body {
+  height: 100%;
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira sans', sans-serif;
+  background: var(--light);
+}
+
+button {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+.app {
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  background-image: url('src/assets/art/guide_to_the_imperium_10_web-4.jpg');
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: darken;
+}
+
+header {
+  margin-top: 160px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px !important;
+  background-color: white;
+
+  .container {
+    height: 100%;
+    width: 15%;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav {
+    list-style: none;
+    li {
+      display: inline-block;
+      padding: 0px 20px;
+      a {
+        vertical-align: middle;
+        transition: 0.2s ease-in-out;
+      }
+      a:hover {
+        color: white;
+      }
+    }
+  }
+
+  .btn-cta {
+    --background-color: lightgrey;
+    --border-color: linear-gradient(to bottom right, red, blue);
+    --border-width: 0.1em;
+    --edge-size: 1em;
+
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    padding: 1.2em 2.5em;
+    border: 0;
+    background: var(--background-color);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    clip-path: polygon(
+      /* top left 1 & 2 */ 0% var(--edge-size),
+      var(--edge-size * 2) 0,
+
+      /* top right */ 100% 0,
+
+      /* buttom-right 1 & 2 */ 100% calc(100% - var(--edge-size)),
+      calc(100% - var(--edge-size)) 100%,
+
+      /* buttom left */ 0 100%
+    );
+  }
+
+  .btn-cta::before,
+  .btn-cta::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .btn-cta::before {
+    background: var(--border-color);
+    z-index: -2;
+  }
+
+  .btn-cta::after {
+    background: var(--background-color);
+    z-index: -1;
+
+    clip-path: polygon(
+      /* top left 1 */ var(--border-width) calc(var(--edge-size) + var(--border-width) * 0.5),
+      /* top left 2 */ calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top right */ calc(100% - var(--border-width)) var(--border-width),
+      /* bottom right - 1 */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+      /* bottom right - 2 */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom left */ calc(var(--border-width)) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+
+  .btn-cta:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* top left 1 */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+      /* top left 2 */ calc(100% - var(--border-width)) var(--border-width),
+      /* top right */ calc(100% - var(--border-width)) var(--border-width),
+      /* bottom right - 1 */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+      /* bottom right - 2 */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom left */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+  }
+}
+
+.contact {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.home {
+  min-height: 200vh;
+}
+
+.hero {
+  margin: 250px 400px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+
+  .container {
+    font-family: 'handel_gothic_dbold', Calibri, Tahoma, sans-serif;
+    h1{
+      margin: 0 auto;
+      font-size: 6rem;
+      line-height: 68%;
+      text-transform: uppercase;
+    }
+    p{
+      margin: 10px 0 auto;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+  }
+
+  img {
+    height: max-content;
+    max-width: 50%;
+  }
+}
