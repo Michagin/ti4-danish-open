@@ -5,7 +5,7 @@
       <div class="container" id="left">
         <img class="logo" src="../assets/logo/logo_ffgdiamond.png" alt="logo" />
       </div>
-      <nav>
+      <nav class="list-items">
         <ul>
           <li><router-link :to="{ name: 'home' }">Home</router-link></li>
           <li><router-link :to="{ name: 'about' }">About</router-link></li>

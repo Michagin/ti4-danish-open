@@ -42,6 +42,10 @@ body {
   background: var(--light);
 }
 
+ul {
+  list-style-position: inside;
+  padding-left: 0px; }
+
 button {
   cursor: pointer;
   appearance: none;
@@ -68,7 +72,7 @@ a {
 }
 
 header {
-  margin-top: 160px;
+  margin-top: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,92 +87,94 @@ header {
     align-items: center;
     justify-content: center;
   }
+}
 
-  nav {
-    list-style: none;
-    li {
-      display: inline-block;
-      padding: 0px 20px;
-      a {
-        vertical-align: middle;
-        transition: 0.2s ease-in-out;
-      }
-      a:hover {
-        color: white;
-      }
+.list-items {
+  list-style: none;
+  li {
+    display: inline-block;
+    padding: 0px 20px;
+    a {
+      vertical-align: middle;
+      transition: 0.2s ease-in-out;
+    }
+    a:hover {
+      color: white;
     }
   }
+}
 
-  .btn-cta {
-    --background-color: lightgrey;
-    --border-color: linear-gradient(to bottom right, red, blue);
-    --border-width: 0.1em;
-    --edge-size: 1em;
+.btn-cta {
+  --background-color: lightgrey;
+  --border-color: linear-gradient(to bottom right, red, blue);
+  --border-width: 0.1em;
+  --edge-size: 1em;
 
-    position: relative;
-    isolation: isolate;
-    display: inline-grid;
-    padding: 1.2em 2.5em;
-    border: 0;
-    background: var(--background-color);
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    clip-path: polygon(
-      /* top left 1 & 2 */ 0% var(--edge-size),
-      var(--edge-size * 2) 0,
+  font-family: 'handel_gothic_dbold', Calibri, Tahoma;
+  text-transform: uppercase;
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  padding: 1.2em 2.5em;
+  border: 0;
+  background: var(--background-color);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  clip-path: polygon(
+    /* top left 1 & 2 */ 0% var(--edge-size),
+    var(--edge-size * 2) 0,
 
-      /* top right */ 100% 0,
+    /* top right */ 100% 0,
 
-      /* buttom-right 1 & 2 */ 100% calc(100% - var(--edge-size)),
-      calc(100% - var(--edge-size)) 100%,
+    /* buttom-right 1 & 2 */ 100% calc(100% - var(--edge-size)),
+    calc(100% - var(--edge-size)) 100%,
 
-      /* buttom left */ 0 100%
-    );
-  }
+    /* buttom left */ 0 100%
+  );
+}
 
-  .btn-cta::before,
-  .btn-cta::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
+.btn-cta::before,
+.btn-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
 
-  .btn-cta::before {
-    background: var(--border-color);
-    z-index: -2;
-  }
+.btn-cta::before {
+  background: var(--border-color);
+  z-index: -2;
+}
 
-  .btn-cta::after {
-    background: var(--background-color);
-    z-index: -1;
+.btn-cta::after {
+  background: var(--background-color);
+  z-index: -1;
 
-    clip-path: polygon(
-      /* top left 1 */ var(--border-width) calc(var(--edge-size) + var(--border-width) * 0.5),
-      /* top left 2 */ calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width),
-      /* top right */ calc(100% - var(--border-width)) var(--border-width),
-      /* bottom right - 1 */ calc(100% - var(--border-width))
-        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
-      /* bottom right - 2 */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
-        calc(100% - var(--border-width)),
-      /* bottom left */ calc(var(--border-width)) calc(100% - var(--border-width))
-    );
-    transition: clip-path 500ms;
-  }
+  clip-path: polygon(
+    /* top left 1 */ var(--border-width) calc(var(--edge-size) + var(--border-width) * 0.5),
+    /* top left 2 */ calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width),
+    /* top right */ calc(100% - var(--border-width)) var(--border-width),
+    /* bottom right - 1 */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+    /* bottom right - 2 */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom left */ calc(var(--border-width)) calc(100% - var(--border-width))
+  );
+  transition: clip-path 500ms;
+}
 
-  .btn-cta:where(:hover, :focus)::after {
-    clip-path: polygon(
-      /* top left 1 */ calc(100% - var(--border-width))
-        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
-      /* top left 2 */ calc(100% - var(--border-width)) var(--border-width),
-      /* top right */ calc(100% - var(--border-width)) var(--border-width),
-      /* bottom right - 1 */ calc(100% - var(--border-width))
-        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
-      /* bottom right - 2 */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
-        calc(100% - var(--border-width)),
-      /* bottom left */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
-        calc(100% - var(--border-width))
-    );
-  }
+.btn-cta:where(:hover, :focus)::after {
+  clip-path: polygon(
+    /* top left 1 */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+    /* top left 2 */ calc(100% - var(--border-width)) var(--border-width),
+    /* top right */ calc(100% - var(--border-width)) var(--border-width),
+    /* bottom right - 1 */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+    /* bottom right - 2 */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom left */ calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width))
+  );
 }
 
 .contact {
@@ -179,26 +185,29 @@ header {
   font-size: 1.5em;
 }
 
-.home {
+main {
+  margin: 0 250px;
   min-height: 200vh;
 }
 
 .hero {
-  margin: 250px 400px;
   display: flex;
   justify-content: center;
   gap: 50px;
   align-items: center;
 
+  margin: 250px 0 200px;
+
   .container {
     font-family: 'handel_gothic_dbold', Calibri, Tahoma, sans-serif;
-    h1{
+    h1 {
       margin: 0 auto;
       font-size: 6rem;
       line-height: 68%;
       text-transform: uppercase;
     }
-    p{
+
+    p {
       margin: 10px 0 auto;
       font-size: 1.4rem;
       text-transform: uppercase;
@@ -208,5 +217,38 @@ header {
   img {
     height: max-content;
     max-width: 50%;
+  }
+
+  .text {
+    max-width: 630px;
+  }
+}
+
+.introduction-container {
+  margin: 0 350px;
+
+  font-size: 1.8rem;
+}
+
+.text-and-picture {
+  margin: 200px 350px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+  p {
+    font-size: 1.6rem;
+  }
+
+  img {
+    height: max-content;
+    max-width: 40%;
+  }
+}
+
+.right {
+  text-align: center;
+  button {
+    font-size: 1.2rem;
   }
 }

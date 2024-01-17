@@ -4,8 +4,7 @@
     <div class="container">
       <div class="text">
         <h1>
-          The Galaxy <br />is ripe for<br />
-          the taking.
+          The Galaxy is ripe for the taking.
         </h1>
         <p>Twilight Imperium 4 Danish Open Tournament 2024</p>
       </div>

@@ -1,11 +1,13 @@
 <script setup lang="ts">
-  import TheHero from '../components/TheHero.vue'
+import TheHero from '../components/TheHero.vue';
+import TheIntroduction from '../components/TheIntroduction.vue'
+import TheTextAndPicture from '../components/TheTextAndPicture.vue'
 </script>
 
 <template>
   <main>
-    <div class="home">
       <TheHero/>
-  </div>
+      <TheIntroduction/>
+      <TheTextAndPicture />
   </main>
 </template>
